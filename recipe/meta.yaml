@@ -1,26 +1,30 @@
 {% set version = '1.0.3' %}
+{% set posix = 'm2-' if win else '' %}
+{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-eml
-  version: {{ version }}
+  version: {{ version|replace("-", "_") }}
 
 source:
   fn: EML_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/EML_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/EML/EML_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/EML_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/EML/EML_{{ version }}.tar.gz
   sha256: f183b853dd98ce52fdb337ee8ca9167e1a42b1941895612e4dbe2a8079261f13
 
 build:
-  number: 0
-  skip: True  # [win32]
-  script: R CMD INSTALL --build .
+  merge_build_host: True  # [win]
+  number: 1
+  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-uuid
     - r-xml2 >=1.1.1
@@ -31,15 +35,22 @@ requirements:
 
 test:
   commands:
-    - R -e "library('EML')"  # [not win]
-    - R -e \"library('EML')\"  # [win]
+    - $R -e "library('EML')"           # [not win]
+    - "\"%R%\" -e \"library('EML')\""  # [win]
 
 about:
   home: https://github.com/ropensci/EML
   license: FreeBSD
-  # license_file: LICENSE
-  summary: Parse and serialize Ecological Metadata Language
+  summary: Parse and serialize Ecological Metadata Language ('EML', see <https://en.wikipedia.org/wiki/Ecological_Metadata_Language>
+    for more information) files into S4 objects.
+  license_family: BSD
 
 extra:
   recipe-maintainers:
     - ocefpaf
+    - johanneskoester
+    - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
