@@ -1,4 +1,4 @@
-{% set version = '1.0.3' %}
+{% set version = '2.0.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,16 +7,15 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: EML_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/EML_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/EML/EML_{{ version }}.tar.gz
-  sha256: f183b853dd98ce52fdb337ee8ca9167e1a42b1941895612e4dbe2a8079261f13
+  sha256: 2b38cddb6605658e924f4f8752c34e1c59d13b01da8a71edfaa1aea7927a81c8
 
 build:
-  noarch: generic
   merge_build_host: True  # [win]
-  number: 1001
+  number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
@@ -26,12 +25,24 @@ requirements:
     - {{posix}}zip               # [win]
   host:
     - r-base
+    - r-digest
+    - r-dplyr
+    - r-emld >=0.0.0.9900
+    - r-jqr
+    - r-jsonlite
+    - r-rmarkdown
     - r-uuid
-    - r-xml2 >=1.1.1
+    - r-xml2
   run:
     - r-base
+    - r-digest
+    - r-dplyr
+    - r-emld >=0.0.0.9900
+    - r-jqr
+    - r-jsonlite
+    - r-rmarkdown
     - r-uuid
-    - r-xml2 >=1.1.1
+    - r-xml2
 
 test:
   commands:
@@ -40,17 +51,37 @@ test:
 
 about:
   home: https://github.com/ropensci/EML
-  license: FreeBSD
-  summary: Parse and serialize Ecological Metadata Language ('EML', see <https://en.wikipedia.org/wiki/Ecological_Metadata_Language>
-    for more information) files into S4 objects.
-  license_family: BSD
+  license: MIT
+  summary: Work with Ecological Metadata Language ('EML') files.  'EML' is a widely used metadata
+    standard in the ecological and environmental sciences, described in Jones et al.
+    (2006), <doi:10.1146/annurev.ecolsys.37.091305.110031>.
+  license_family: MIT
 
 extra:
   recipe-maintainers:
     - ocefpaf
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+    - conda-forge/r
+
+# Package: EML
+# Type: Package
+# Title: Read and Write Ecological Metadata Language Files
+# Description: Work with Ecological Metadata Language ('EML') files.  'EML' is a widely used metadata standard in the ecological and environmental sciences, described in Jones et al. (2006), <doi:10.1146/annurev.ecolsys.37.091305.110031>.
+# Version: 2.0.0
+# Authors@R: c( person("Carl", "Boettiger",  email = "cboettig@gmail.com",  role = c("aut", "cre", "cph"), comment=c(ORCID = "0000-0002-1642-628X")), person("Matthew B.", "Jones", role="aut",  comment = c(ORCID="0000-0003-0077-4738")),       person("Mitchell", "Maier",  role = c("ctb"), comment= c(ORCID = "0000-0001-6955-0535")), person("Bryce", "Mecum", role = "ctb",  email = "brycemecum@gmail.com", comment = c(ORCID = "0000-0002-0381-3766")), person("Maelle", "Salmon", role = "ctb",  email = "maelle.salmon@yahoo.se",  comment = c(ORCID = "0000-0002-2815-0399")), person("Jeanette", "Clark", role = "ctb",  email = "jclark@nceas.ucsb.edu", comment = c(ORCID = "0000-0003-4703-1974")) )
+# License: MIT + file LICENSE
+# URL: https://github.com/ropensci/EML
+# BugReports: https://github.com/ropensci/EML/issues
+# Encoding: UTF-8
+# LazyData: true
+# Depends: R (>= 2.10)
+# Suggests: knitr, taxize, tibble, testthat, covr, EML, units, htmlwidgets, shiny, shinyjs, spelling
+# Imports: xml2, methods, digest, emld (>= 0.0.0.9900), jqr, jsonlite, uuid, rmarkdown, utils, dplyr
+# VignetteBuilder: knitr
+# RoxygenNote: 6.1.1
+# Language: en-US
+# NeedsCompilation: no
+# Packaged: 2019-04-22 05:00:55 UTC; cboettig
+# Author: Carl Boettiger [aut, cre, cph] (<https://orcid.org/0000-0002-1642-628X>), Matthew B. Jones [aut] (<https://orcid.org/0000-0003-0077-4738>), Mitchell Maier [ctb] (<https://orcid.org/0000-0001-6955-0535>), Bryce Mecum [ctb] (<https://orcid.org/0000-0002-0381-3766>), Maelle Salmon [ctb] (<https://orcid.org/0000-0002-2815-0399>), Jeanette Clark [ctb] (<https://orcid.org/0000-0003-4703-1974>)
+# Maintainer: Carl Boettiger <cboettig@gmail.com>
+# Repository: CRAN
+# Date/Publication: 2019-04-23 07:50:14 UTC
