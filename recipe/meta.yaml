@@ -1,4 +1,4 @@
-{% set version = '1.0.3' %}
+{% set version = "2.0.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,12 +11,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/EML_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/EML/EML_{{ version }}.tar.gz
-  sha256: f183b853dd98ce52fdb337ee8ca9167e1a42b1941895612e4dbe2a8079261f13
+  sha256: 2b38cddb6605658e924f4f8752c34e1c59d13b01da8a71edfaa1aea7927a81c8
 
 build:
   noarch: generic
   merge_build_host: True  # [win]
-  number: 1002
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
