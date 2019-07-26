@@ -56,12 +56,14 @@ about:
     standard in the ecological and environmental sciences, described in Jones et al.
     (2006), <doi:10.1146/annurev.ecolsys.37.091305.110031>.
   license_family: MIT
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - conda-forge/r
     - ocefpaf
-    - conda-forge/r
 
 # Package: EML
 # Type: Package
