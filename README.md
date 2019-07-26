@@ -3,11 +3,11 @@ About r-eml
 
 Home: https://github.com/ropensci/EML
 
-Package license: FreeBSD
+Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
-Summary: Parse and serialize Ecological Metadata Language ('EML', see <https://en.wikipedia.org/wiki/Ecological_Metadata_Language> for more information) files into S4 objects.
+Summary: Work with Ecological Metadata Language ('EML') files.  'EML' is a widely used metadata standard in the ecological and environmental sciences, described in Jones et al. (2006), <doi:10.1146/annurev.ecolsys.37.091305.110031>.
 
 
 
@@ -116,12 +116,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@bgruening](https://github.com/bgruening/)
-* [@cbrueffer](https://github.com/cbrueffer/)
 * [@conda-forge/r](https://github.com/conda-forge/r/)
-* [@daler](https://github.com/daler/)
-* [@dbast](https://github.com/dbast/)
-* [@jdblischak](https://github.com/jdblischak/)
-* [@johanneskoester](https://github.com/johanneskoester/)
 * [@ocefpaf](https://github.com/ocefpaf/)
 
