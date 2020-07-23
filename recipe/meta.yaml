@@ -1,4 +1,4 @@
-{% set version = "2.0.2" %}
+{% set version = "2.0.3" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/EML_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/EML/EML_{{ version }}.tar.gz
-  sha256: 15f3dc216af4e53f537facb0d90501ef2ecc005e704379fc22499ce026aa1316
+  sha256: 574e815c405e4f03cd9f8c303a774d1dd7fb8c38d89bcc471800a66fe9f29869
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -52,12 +52,10 @@ test:
 about:
   home: https://github.com/ropensci/EML
   license: MIT
-  summary: Work with Ecological Metadata Language ('EML') files.  'EML' is a widely used metadata
-    standard in the ecological and environmental sciences, described in Jones et al.
-    (2006), <doi:10.1146/annurev.ecolsys.37.091305.110031>.
+  summary: Work with Ecological Metadata Language ('EML') files.  'EML' is a widely used metadata standard in the ecological and environmental sciences, described in Jones et al. (2006), <doi:10.1146/annurev.ecolsys.37.091305.110031>.
   license_family: MIT
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
     - LICENSE
 
 extra:
