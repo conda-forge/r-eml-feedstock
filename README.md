@@ -1,11 +1,11 @@
-About r-eml
-===========
+About r-eml-feedstock
+=====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-eml-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/ropensci/EML
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-eml-feedstock/blob/main/LICENSE.txt)
 
 Summary: Work with Ecological Metadata Language ('EML') files.  'EML' is a widely used metadata standard in the ecological and environmental sciences, described in Jones et al. (2006), <doi:10.1146/annurev.ecolsys.37.091305.110031>.
 
