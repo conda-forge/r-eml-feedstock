@@ -25,7 +25,7 @@ requirements:
     - r-base
     - r-digest
     - r-dplyr
-    - r-emld >=0.0.0.9900
+    - r-emld >=0.5.0
     - r-jqr
     - r-jsonlite
     - r-rmarkdown
@@ -35,7 +35,7 @@ requirements:
     - r-base
     - r-digest
     - r-dplyr
-    - r-emld >=0.0.0.9900
+    - r-emld >=0.5.0
     - r-jqr
     - r-jsonlite
     - r-rmarkdown
