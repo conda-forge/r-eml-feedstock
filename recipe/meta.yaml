@@ -1,4 +1,4 @@
-{% set version = "2.0.6.1" %}
+{% set version = "2.0.7" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/EML_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/EML/EML_{{ version }}.tar.gz
-  sha256: ea1f075d774cad736098ac8863a1663511892ea6f1e119b534aa476cbe834ccc
+  sha256: 789d300e2783a2c84910031bc02e01e4bbb40cb57a7af7724d8c13ea9e148360
 
 build:
-  number: 3
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -25,7 +25,7 @@ requirements:
     - r-base
     - r-digest
     - r-dplyr
-    - r-emld >=0.0.0.9900
+    - r-emld >=0.5.0
     - r-jqr
     - r-jsonlite
     - r-rmarkdown
@@ -35,7 +35,7 @@ requirements:
     - r-base
     - r-digest
     - r-dplyr
-    - r-emld >=0.0.0.9900
+    - r-emld >=0.5.0
     - r-jqr
     - r-jsonlite
     - r-rmarkdown
